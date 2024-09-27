@@ -1,0 +1,14 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css1.css' %}">
+</head>
+<html>
+    <h3>Template1</h3>
+    {% for station in stations %}
+    <p>{{ station.station_name }}</p>
+        {% for line in station.station_line.all %} 
+        {# many to many looping #}
+        <li>{{ line.line_name }}</li>
+        {% endfor %}
+    {% endfor %}
+</html>
